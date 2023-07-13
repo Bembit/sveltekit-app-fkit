@@ -18,3 +18,6 @@ try {
         console.error('Firebase admin initialization error', err.stack);
     }
 }
+
+export const adminDB = getFirestore();
+export const adminAuth = getAuth();
