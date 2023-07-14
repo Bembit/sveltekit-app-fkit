@@ -14,4 +14,3 @@
     <a href="/login" class="btn btn-primary">Sign in</a>
 
 {/if}
-```
