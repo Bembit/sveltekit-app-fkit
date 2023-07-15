@@ -67,7 +67,7 @@
 <AuthCheckMiddleware>
 
   {#if $userData?.username}
-
+  <!-- allow only lowercase -->
   <p class="text-primary">You already have a username @{ $userData.username }</p>
   <!-- later changable in profile -->
   <p>usernames can't be changed for now</p>
