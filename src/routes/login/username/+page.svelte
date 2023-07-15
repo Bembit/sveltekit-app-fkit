@@ -2,7 +2,7 @@
 
     import AuthCheckMiddleware from "$lib/components/AuthCheckMiddleware.svelte";
 
-    import { db, user } from '$lib/firebase';
+    import { db, user, userData } from '$lib/firebase';
     import { doc, getDoc, writeBatch } from "firebase/firestore";
 
     let username = "";
@@ -66,8 +66,16 @@
 
 <AuthCheckMiddleware>
 
-    <h2>Choose your unique username</h2>
+  {#if $userData?.username}
 
+  <p class="text-primary">You already have a username @{ $userData.username }</p>
+  <!-- later changable in profile -->
+  <p>usernames can't be changed for now</p>
+  <a class="btn" href="/login/photo">Upload a profile photo</a>
+
+	{:else}
+
+  <h2>Choose your unique username</h2>
     <form class="w-2/5" on:submit|preventDefault={confirmUsername}>
         <!-- placeholder as google displayname || username -->
         <input type="text" placeholder={$user.displayName || "Username"} class="input w-full text-black"
@@ -81,9 +89,11 @@
         <div class="my-4 min-h-16 px-8 w-full">
             <!-- deleting back to zero doesnt remove loading -->
             <!-- does it need a reset to initial "" state? -->
+
             {#if isBlank}
                 <p class="text-primary">type something</p>
             {/if}
+
             {#if isLoading && !isBlank}
               <p class="text-secondary">Checking availability of @{username}...</p>
             {/if}
@@ -105,5 +115,7 @@
             {/if}
           </div>
     </form>
+
+	{/if}
 
 </AuthCheckMiddleware>

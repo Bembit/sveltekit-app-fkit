@@ -1,6 +1,12 @@
 <script lang="ts">
 
+    import { user, userData } from "$lib/firebase";
+
     import "../app.css";
+
+    // subscribe to store in root layout
+    $user;
+    $userData;
 
 </script>
 

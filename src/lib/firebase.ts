@@ -1,9 +1,9 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
+import { doc, getFirestore, onSnapshot } from "firebase/firestore";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { getStorage } from "firebase/storage";
-import { writable } from "svelte/store";
+import { derived, writable } from "svelte/store";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -54,3 +54,45 @@ function userStore() {
 }
 
 export const user = userStore();
+
+// user profile store
+
+// @param {string} path - path to user profile
+// @returns a store with realtime user profile data
+
+export function docStore<T>( path: string ) {
+
+	let unsubscribe: () => void;
+
+	const docRef = doc(db, path);
+
+	const { subscribe } = writable<T | null>(null, (set) => {
+		unsubscribe = onSnapshot(docRef, (snapshot) => {
+			set((snapshot.data() as T) ?? null);
+		});
+
+		return () => unsubscribe();
+	});
+	return {
+		subscribe,
+		ref: docRef,
+		is: docRef.id,
+	};
+}
+
+interface UserData {
+	username: string;
+	bio: string;
+	photoURL: string;
+	link: any[];
+}
+
+export const userData: Readable<UserData | null> =  derived(user, ($user, set) => {
+
+	if($user) {
+		return docStore<UserData>(`users/${$user.uid}`).subscribe(set);
+	} else {
+		set(null);
+	}
+
+});
