@@ -2,6 +2,7 @@
 <p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
 
 <a class="btn" href="/login">Login</a>
+<a class="btn" href="/Bence">Profile</a>
 
 <style lang="postcss">
     /* :global(html) {

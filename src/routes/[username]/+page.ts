@@ -1,10 +1,12 @@
 import type { PageLoad } from './$types';
 import { collection, getDocs, limit, query, where } from 'firebase/firestore';
-import { db } from '$lib/firebase';
+import { db, user, userData } from '$lib/firebase';
 import { error } from '@sveltejs/kit';
 
 export const load = (async ({ params }) => {
     // query the db for user data
+    
+
     const collectionRef = collection(db, "users");
 
     const q = query(

@@ -7,7 +7,7 @@
 
     let previewURL: string;
     let uploading = false;
-    $: href = `/${$userData?.username}/edit`;
+    $: href = `/${$userData?.username}`;
 
     // set firebase storage rules to allow write if user is logged in
     async function upload(e: any) {
