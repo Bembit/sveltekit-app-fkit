@@ -37,8 +37,9 @@
     <p>does it consider /login as a [user] ? /[login]/edit</p>
     <p>what if I register a user named login</p>
     <p>original error was /Bence/bio that kept putting me to the login screen</p>
-    <p>add firebase-admin</p>
+    <p>done: add firebase-admin</p>
     <p>solved: yeah cause I reverted back to client side branch - missing dotenv and firebase config still I can register and add stuff to the db?</p>
+    <p>cookie spam fixed</p>
     <br>
 
     <a href="/login/photo" class="btn text-purple-500">change photo</a>

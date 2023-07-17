@@ -36,6 +36,8 @@
 
     async function signOutSSR() {
         const res = await fetch("/api/signin", { method: "DELETE" });
+        // this triggers an error
+        // +page.svelte:40     POST https://firestore.googleapis.com/google.firestore.v1.Firestore/Listen/channel?VER=8&database=projects%2Fsveltekit-app-fkit%2Fdatabases%2F(default)&gsessionid=iDB4KDqABn8w3rcD7ZjekLsr1sngkhT5bqQue0h7zMU&SID=8wJIuxJJqCD9BsWAOpyrkw&RID=66882&TYPE=terminate&zx=i1k7lcdqtf4p net::ERR_BLOCKED_BY_CLIENT
         await signOut(auth);
     }
 
@@ -46,7 +48,8 @@
 {#if $user}
 
     <h2 class="card-title">Welcome, {$user.displayName}</h2>
-    <button class="btn btn-danger" on:click={() => signOut(auth)}>Sign out</button>
+    <button class="btn btn-danger" on:click={signOutSSR}>Sign out</button>
+    <!-- <button class="btn btn-danger" on:click={() => signOut(auth)}>Sign out</button> -->
     <p>or go and</p>
     <a href="/login/username" class="btn">Choose username</a>
 
