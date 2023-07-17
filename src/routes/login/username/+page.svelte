@@ -18,7 +18,7 @@
     $: isValid = username?.length > 2 && username.length < 24 && re.test(username);
     $: isNotEmpty = username.length > 0;
     $: isTaken = isValid && !isAvailable && !isLoading
-    $: isBlank = username.length === 0;
+    // $: isBlank = username.length === 0;
 
     // check if username is available
     async function checkAvailability() {
@@ -52,7 +52,7 @@
             username,
             photoURL: $user?.photoURL,
             published: true,
-            bio: "asd",
+            bio: "placeholder bio",
             links: [
                 { title: "twitter", url: "https://twitter.com", icon: "custom" },
             ],
@@ -90,11 +90,11 @@
             <!-- deleting back to zero doesnt remove loading -->
             <!-- does it need a reset to initial "" state? -->
 
-            {#if isBlank}
+            <!-- {#if isBlank}
                 <p class="text-primary">type something</p>
-            {/if}
+            {/if} -->
 
-            {#if isLoading && !isBlank}
+            {#if isLoading}
               <p class="text-secondary">Checking availability of @{username}...</p>
             {/if}
         
