@@ -57,9 +57,6 @@ export const user = userStore();
 
 // user profile store
 
-// @param {string} path - path to user profile
-// @returns a store with realtime user profile data
-
 export function docStore<T>( path: string ) {
 
 	let unsubscribe: () => void;

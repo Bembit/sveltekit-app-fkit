@@ -6,7 +6,6 @@ import { error } from '@sveltejs/kit';
 export const load = (async ({ params }) => {
     // query the db for user data
     
-
     const collectionRef = collection(db, "users");
 
     const q = query(
