@@ -47,16 +47,17 @@
 
 {#if $user}
 
-    <h2 class="card-title">Welcome, {$user.displayName}</h2>
-    <button class="btn btn-danger" on:click={signOutSSR}>Sign out</button>
+    <h2 class="card-title">You are already logged in as: {$user.displayName}, {$user.email}</h2>
+    <button class="btn btn-secondary" on:click={signOutSSR}>Sign out</button>
     <!-- <button class="btn btn-danger" on:click={() => signOut(auth)}>Sign out</button> -->
     <p>or go and</p>
-    <a href="/login/username" class="btn">Choose username</a>
+    <a href="/login/username" class="btn btn-primary">Choose username</a>
 
 {:else}
 
 <!-- signinwithgoogle will remember the last google account and autosign in -->
 <!-- this should be ok, except if I delib logout, maybe to change users -->
-<button class="btn" on:click={signInWithGoogle}>Sign in with google</button>
+<button class="btn btn-primary" on:click={signInWithGoogle}>Sign in with Google</button>
+<!-- <button disabled class="btn btn-secondary" on:click={signInWithGoogle}>Sign in with Facebook</button> -->
 
 {/if}

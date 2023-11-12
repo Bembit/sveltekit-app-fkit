@@ -71,7 +71,7 @@
   <p class="text-primary">You already have a username @{ $userData.username }</p>
   <!-- later changable in profile -->
   <p>usernames can't be changed for now</p>
-  <a class="btn" href="/login/photo">Upload a profile photo</a>
+  <a class="btn btn-primary" href="/login/photo">Upload a profile photo</a>
 
 	{:else}
 

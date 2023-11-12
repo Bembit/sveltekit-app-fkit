@@ -32,14 +32,16 @@
 
         <div class="">
             <!-- from preview, aready saved, google base we fall back to a static img -->
-            <img src={previewURL ?? $userData?.photoURL ?? $user.photoURL ?? "/user.png"}
-            alt="photoURL"
-            width="200"
-            height="200"
-            class="mx-auto rounded-xl"
-            />
+            <!-- create a proper image preview div -->
+            <div id="photoURL" class="w-48 h-48 mx-auto my-5 rounded-full" style="
+            background-image: url({previewURL ?? $userData?.photoURL ?? $user.photoURL ?? "/user.png"});
+            background-position: center center;
+            background-size: 300px auto;
+            width: 250px;
+            height: 250px;
+            "/>
             <label for="photoURL" class="label">
-                <span class="">Pick a photo</span>
+                <span class="">Supported files are: png, jpg, gif, avif</span>
             </label>
             <!-- rewrite this to button click upload -->
             <input 
@@ -58,6 +60,6 @@
 
     </form>
 
-    <a {href} class="btn btn-primary">Finish</a>
+    <a {href} class="btn btn-primary mt-5">Finish</a>
 
 </AuthCheckMiddleware>

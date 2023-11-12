@@ -1,8 +1,14 @@
-<h1 class="text-green-900 text-3xl font-bold underline">Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<div class="card w-4/6 bg-neutral text-neutral-content mx-auto mt-10">
+    <div class="card-body items-center text-center">
+        <h1 class="text-white-900 text-3xl font-bold">Welcome to Linktree</h1>
+        <p>Visit <a class="text-red-400" href="https://github.com/Bembit/sveltekit-linktree#readme">https://github.com/Bembit/sveltekit-linktree#readme</a> to read the documentation.</p>
+    
+        <a class="btn btn-primary" href="/login">Login / Sign up</a>
+        <a class="btn btn-secondary" href="/Bence">MY user profile for testing</a>
+    </div>
+  
 
-<a class="btn" href="/login">Login</a>
-<a class="btn" href="/Bence">Profile</a>
+</div>
 
 <style lang="postcss">
     /* :global(html) {
