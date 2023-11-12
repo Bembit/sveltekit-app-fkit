@@ -4,7 +4,7 @@
         <p>Visit <a class="text-red-400" href="https://github.com/Bembit/sveltekit-linktree#readme">https://github.com/Bembit/sveltekit-linktree#readme</a> to read the documentation.</p>
     
         <a class="btn btn-primary" href="/login">Login / Sign up</a>
-        <a class="btn btn-secondary" href="/Bence">MY user profile for testing</a>
+        <a class="btn btn-secondary" href="/Bembit">My user profile for testing</a>
     </div>
   
 

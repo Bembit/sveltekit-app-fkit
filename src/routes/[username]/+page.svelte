@@ -20,21 +20,28 @@
 
 </svelte:head>
 
-<main class="text-center mx-auto mt-8">
+<main class="text-center mx-auto mt-8 flex flex-row">
 
-    <div class="bg-neutral">
-    <div class="w-48 h-48 mx-auto my-8 rounded-full" style="
-      background-image: url({data.photoURL ?? "/user.png"});
-      background-position: center center;
-      background-size: 300px auto;
-      width: 250px;
-      height: 250px;
-    ">
-    </div>
+    <div class="bg-neutral p-7">
 
-    <h1 class="text-7xl mb-8">
-      @{data.username}
-    </h1>
+      <div class="mx-auto rounded-full" style="
+        background-image: url({data.photoURL ?? "/user.png"});
+        background-position: center center;
+        background-size: 300px auto;
+        width: 250px;
+        height: 250px;
+      ">
+      </div>
+
+      <h1 class="text-5xl mt-5 mb-8 text-white">
+        @{data.username}
+      </h1>
+
+      <a href="/login/photo" class="btn btn-primary">change photo</a>
+      <a href="{data.username}/bio" class="btn btn-secondary">change bio</a>
+
+      <p class="text-xl my-8 text-secondary">Bio: {data.bio ?? "no bio yet..."}</p>
+  
     </div>
     <!-- <p>/login/edit renders the links</p>
     <p>does it consider /login as a [user] ? /[login]/edit</p>
@@ -46,23 +53,29 @@
     <p>solved: yeah cause I reverted back to client side branch - missing dotenv and firebase config still I can register and add stuff to the db?</p>
     <p>cookie spam fixed</p> -->
 
-    <a href="/login/photo" class="btn btn-primary">change photo</a>
-    <a href="{data.username}/bio" class="btn btn-secondary">change bio</a>
 
-  
-    <p class="text-xl my-8">Bio: {data.bio ?? "no bio yet..."}</p>
 
     <!-- {$userData.username} broke it, so it's either data.username or $userData?.username -->
     <!-- look into this google auth refresh userdata -->
-    <a href="{data.username}/edit" class="btn btn-primary">add / edit</a>
+      
+    <div class="bg-neutral p-5 ml-8 flex flex-col w-full">
 
-    <ul class="list-none flex-col mx-auto w-full text-center">
-      {#each data.links as item}
-      <li>
-      <!-- debug auto consol logs the data -->
-        <UserLink {...item} />
-      </li>
-      {/each}
-    </ul>
+      <h3 class="text-3xl text-secondary">
+        Links
+      </h3>
+
+      <a href="{data.username}/edit" class="btn btn-primary mt-5 mb-5">options / edit</a>
+
+      <ul class="list-none flex-col mx-auto w-full text-center">
+        {#each data.links as item}
+        <li class="w-full">
+        <!-- debug auto console logs the data -->
+          <UserLink {...item} />
+        </li>
+        {/each}
+      </ul>
+    </div>
+    
+
   
 </main>
