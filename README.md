@@ -1,13 +1,10 @@
 LinkTree clone in Svelte with Firebase.
 
--Google auth
+First look at SvelteKit.
 
--Image upload
+-Google auth, firebase, image upload, user profiles crud, tailwind, daisyui, typescript.
 
--User profiles
-
--Unfinished Tailwind design
-
-
-<img src="https://github.com/Bembit/sveltekit-linktree/blob/main/landing.png" width="100%">
-<img src="https://github.com/Bembit/sveltekit-linktree/blob/main/landing2.png" width="100%">
+<div>
+<img src="https://github.com/Bembit/sveltekit-linktree/blob/main/landing.png" width="48%">
+<img src="https://github.com/Bembit/sveltekit-linktree/blob/main/landing2.png" width="48%">
+</div>
